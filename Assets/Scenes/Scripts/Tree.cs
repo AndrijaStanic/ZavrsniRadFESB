@@ -12,7 +12,7 @@ public class Tree : MonoBehaviour
     GameObject thisTree;
     [SerializeField] GameObject thisStump;
     private bool isFallen = false;
-    [SerializeField] float fallingSpeed = 5f;
+    [SerializeField] float waitingTimeInSec = 4f;
     public float health = 20f;
     private void Start()
     {
@@ -26,34 +26,33 @@ public class Tree : MonoBehaviour
             
             Rigidbody rigidBody = thisTree.AddComponent<Rigidbody>();
             rigidBody.isKinematic = false;
+            // rigidBody.detectCollisions = false; propada korz zemlju /ignora collision
             rigidBody.useGravity = true;
             rigidBody.mass = 2;
-            rigidBody.AddForce(Vector3.forward, ForceMode.Impulse);
-            StartCoroutine(destroyTree());
-            //OnDestroy();
-            isFallen = true;
+            rigidBody.AddTorque(Vector3.forward, ForceMode.Impulse); // gurni naprid
+            StartCoroutine(destroyTree()); // zove unsti stablo
+            isFallen = true; // state = fallen
         }
     }
 
     private IEnumerator destroyTree()
     {
-        yield return new WaitForSeconds(2f);
-        Destroy(thisTree);
-        Instantiate(thisStump, spawnPoint.position, spawnPoint.rotation);
+        yield return new WaitForSeconds(waitingTimeInSec); // ceka vrime u sekundama
+        Destroy(thisTree); // unisti stablo
+        PlaceStump(); // zove stavi stup
     }
+
+    private void PlaceStump() //metoda za postavljanje stumpa
+    {
+        Instantiate(thisStump, spawnPoint.position, spawnPoint.rotation); // postavlja stump na tu lokaciju
+    }
+
     public void TakeDamage(float damage)
     {
-        if (health <= 0) {
-            GetComponent<Mover>().Cancel();
+        if (health <= 0) { // provjerava ima li healtha
+            GetComponent<Mover>().Cancel(); // cancela target
         }
 
-        health -= damage;
+        health -= damage; // skida hp ovisno o damagu
     }
-    public void OnDestroy()
-    {
-        new WaitForSeconds(2f);
-        Instantiate(thisStump, spawnPoint.position, spawnPoint.rotation);
-    }
-
-
 }
