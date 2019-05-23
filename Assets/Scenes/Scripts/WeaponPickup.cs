@@ -8,6 +8,7 @@ namespace RPG.Combat
     {
         [SerializeField] Weapon weapon = null;
         private void OnTriggerEnter(Collider other) {
+            
             if (other.gameObject.tag == "Player")
             {
                 other.GetComponent<Fighter>().EquipWeapon(weapon);
