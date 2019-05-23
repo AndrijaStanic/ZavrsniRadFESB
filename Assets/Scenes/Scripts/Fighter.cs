@@ -1,3 +1,4 @@
+using System;
 using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
@@ -7,11 +8,20 @@ namespace RPG.Combat
     [RequireComponent(typeof(Mover))]
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponDamage = 5f;
+        
         [SerializeField] float timeBetweenAttacks = 1f;
-        [SerializeField] float weaponRange = 2f;
+        
+        [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] Transform handTransform = null;
+        Weapon currentWeapon = null;
         Transform target;
         float timeSinceLastAttack = 0;
+
+        private void Start() {
+            EquipWeapon(defaultWeapon);
+        }
+
+        
 
         private void Update()
         {
@@ -28,6 +38,13 @@ namespace RPG.Combat
                 GetComponent<Mover>().Cancel();
                 AttackBehaviour();
             }
+        }
+
+        public void EquipWeapon(Weapon weapon)
+        {
+            currentWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            weapon.Spawn(handTransform, animator);
         }
 
         private void AttackBehaviour()
@@ -53,7 +70,7 @@ namespace RPG.Combat
         void Hit()
         {
             Tree health = target.GetComponent<Tree>();
-            health.TakeDamage(weaponDamage);
+            health.TakeDamage(currentWeapon.GetDamage());
             if (health.health <= 0)
             {
                 Cancel();
@@ -63,7 +80,7 @@ namespace RPG.Combat
 
         private bool CalculateRange()
         {
-            return Vector3.Distance(transform.position, target.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.position) < currentWeapon.GetRange();
         }
 
         public void Attack(CombatTarget combatTarget)

@@ -28,7 +28,7 @@ public class Tree : MonoBehaviour
             rigidBody.isKinematic = false;
             // rigidBody.detectCollisions = false; propada korz zemlju /ignora collision
             rigidBody.useGravity = true;
-            rigidBody.mass = 2;
+            rigidBody.mass = 5;
             rigidBody.AddTorque(Vector3.forward, ForceMode.Impulse); // gurni naprid
             StartCoroutine(destroyTree()); // zove unsti stablo
             isFallen = true; // state = fallen
