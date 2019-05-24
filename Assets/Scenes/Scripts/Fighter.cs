@@ -8,9 +8,7 @@ namespace RPG.Combat
     [RequireComponent(typeof(Mover))]
     public class Fighter : MonoBehaviour, IAction
     {
-        
         [SerializeField] float timeBetweenAttacks = 1f;
-        
         [SerializeField] Weapon defaultWeapon = null;
         [SerializeField] Transform handTransform = null;
         Weapon currentWeapon = null;
@@ -50,9 +48,10 @@ namespace RPG.Combat
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
-            if (timeSinceLastAttack > timeBetweenAttacks)
+            if (timeSinceLastAttack > currentWeapon.timeBetweenAttacks)
             {
-                //ovo triggera Ht Event
+                // print("Vrijeme je: " + currentWeapon.timeBetweenAttacks);
+                // ovo triggera Ht Event
                 TriggerAttack();
                 timeSinceLastAttack = 0;
 
@@ -71,6 +70,8 @@ namespace RPG.Combat
         {
             Tree health = target.GetComponent<Tree>();
             health.TakeDamage(currentWeapon.GetDamage());
+            Enemy enemy = target.GetComponent<Enemy>();
+            enemy.TakeDamage(currentWeapon.GetDamage());
             if (health.health <= 0)
             {
                 Cancel();

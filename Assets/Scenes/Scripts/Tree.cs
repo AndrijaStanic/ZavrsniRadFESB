@@ -21,9 +21,14 @@ public class Tree : MonoBehaviour
 
     private void Update()
     {
+        CheckIfTreeIsDead();
+    }
+
+    private void CheckIfTreeIsDead()
+    {
         if (health <= 0 && isFallen == false)
         {
-            
+
             Rigidbody rigidBody = thisTree.AddComponent<Rigidbody>();
             rigidBody.isKinematic = false;
             // rigidBody.detectCollisions = false; propada korz zemlju /ignora collision
