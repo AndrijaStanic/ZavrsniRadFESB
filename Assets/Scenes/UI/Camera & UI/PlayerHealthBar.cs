@@ -6,13 +6,22 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RawImage))]
 public class PlayerHealthBar : MonoBehaviour
 {
+    
+    public int driedTreesCut;
+    public int friendlyTreesCut;
+    public Text driedTreesCutText;
+    public Text friendlyTreesCutText;
+    public Text treesCut;
+    public GameObject gameOverPanel;
+    public GameObject driedTreesCutPanel;
+    public GameObject friendlyTreesCutPanel;
+    public GameObject TimeLeftPanel;
+    public GameObject HealthBarPanel;
+    public GameObject HealthMaskPanel;
+    public Text GameOverText;
+
     RawImage healthBarRawImage;
     Player player;
-    public int driedTreesCut;
-    public Text driedTreesCutText;
-    public int friendlyTreesCut;
-    public Text friendlyTreesCutText;
-
     // Use this for initialization
     void Start()
     {
@@ -27,7 +36,20 @@ public class PlayerHealthBar : MonoBehaviour
         friendlyTreesCutText.text = "Friendly trees cut: " + friendlyTreesCut;
         float xValue = -(player.healthAsPercentage / 2f) - 0.5f;
         healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
+        SetGameOverPanel();
     }
-    
-
+    void SetGameOverPanel()
+    {
+        if (player.isDead)
+        {
+            Cursor.visible = true;
+            gameOverPanel.SetActive(true);
+            treesCut.text = "" + (friendlyTreesCut + driedTreesCut);
+            driedTreesCutPanel.SetActive(false);
+            friendlyTreesCutPanel.SetActive(false);
+            TimeLeftPanel.SetActive(false);
+            HealthBarPanel.SetActive(false);
+            HealthMaskPanel.SetActive(false);
+        }
+    }
 }

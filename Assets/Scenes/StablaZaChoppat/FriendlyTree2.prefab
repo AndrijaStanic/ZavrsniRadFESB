@@ -59,7 +59,7 @@ CapsuleCollider:
   m_Height: 11.480088
   m_Direction: 1
   m_Center: {x: 0.6113488, y: 6.16, z: 0.37679672}
---- !u!114 &499462297215186292
+--- !u!114 &1725700435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,23 +68,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 498376722906477263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddbccf2d7e5426c4f9214f1a7133ddb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &499462297215186293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 498376722906477263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441a3b56cfe04284ca2b28b856e5e625, type: 3}
+  m_Script: {fileID: 11500000, guid: 66a27459bf5b28a4093c144eec41e9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 499462297381593569}
-  thisStump: {fileID: 1004710975425532, guid: c0aa33e678586aa43a1a9254fdfdfb4d, type: 3}
+  thisStump: {fileID: 7178996237027552803, guid: f59e10f929ec6b442b014e62b0e47de5,
+    type: 3}
   waitingTimeInSec: 4
   health: 20
 --- !u!114 &1816311672
@@ -101,6 +90,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthPoints: 20
   currentHealthPoints: 20
+--- !u!114 &499462297215186292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498376722906477263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddbccf2d7e5426c4f9214f1a7133ddb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &499462297381593568
 GameObject:
   m_ObjectHideFlags: 0

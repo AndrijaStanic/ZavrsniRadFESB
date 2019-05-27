@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbccf2d7e5426c4f9214f1a7133ddb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5132041034127508857
+--- !u!114 &1911471504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,11 +187,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5132041034908310935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441a3b56cfe04284ca2b28b856e5e625, type: 3}
+  m_Script: {fileID: 11500000, guid: 66a27459bf5b28a4093c144eec41e9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 5132041033421920618}
-  thisStump: {fileID: 1456703055220044, guid: b71e387166e4ce648849bbd6b762b736, type: 3}
+  thisStump: {fileID: 7301741097265233022, guid: 6e61b51aa539d224684de7c2256f9f44,
+    type: 3}
   waitingTimeInSec: 4
   health: 20
 --- !u!1001 &5132041034908439269

@@ -11,6 +11,7 @@ namespace RPG.Combat
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Weapon defaultWeapon = null;
         [SerializeField] Transform handTransform = null;
+
         Weapon currentWeapon = null;
         Transform target;
         float timeSinceLastAttack = 0;
@@ -69,13 +70,28 @@ namespace RPG.Combat
         void Hit()
         {
             Tree health = target.GetComponent<Tree>();
-            health.TakeDamage(currentWeapon.GetDamage());
-            Enemy enemy = target.GetComponent<Enemy>();
-            enemy.TakeDamage(currentWeapon.GetDamage());
-            if (health.health <= 0)
+            if (health == null)
             {
-                Cancel();
+                FriendlyTree fTree = target.GetComponent<FriendlyTree>();
+                fTree.TakeDamage(currentWeapon.GetDamage());
+                Enemy enemy = target.GetComponent<Enemy>();
+                enemy.TakeDamage(currentWeapon.GetDamage());
+                if (fTree.health <= 0)
+                {
+                    Cancel();
+                }
             }
+            else
+            {
+                health.TakeDamage(currentWeapon.GetDamage());
+                Enemy enemy = target.GetComponent<Enemy>();
+                enemy.TakeDamage(currentWeapon.GetDamage());
+                if (health.health <= 0)
+                {
+                    Cancel();
+                }
+            }
+            
 
         }
 

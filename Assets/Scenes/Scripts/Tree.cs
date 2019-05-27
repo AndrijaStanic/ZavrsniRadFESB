@@ -8,12 +8,13 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-    public Transform spawnPoint;
-    GameObject thisTree;
     [SerializeField] GameObject thisStump;
-    private bool isFallen = false;
     [SerializeField] float waitingTimeInSec = 4f;
     public float health = 20f;
+    public Transform spawnPoint;
+
+    private bool isFallen = false;
+    GameObject thisTree;
     PlayerHealthBar phb;
     private void Start()
     {
