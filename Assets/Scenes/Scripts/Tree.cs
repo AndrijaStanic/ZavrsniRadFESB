@@ -14,9 +14,11 @@ public class Tree : MonoBehaviour
     private bool isFallen = false;
     [SerializeField] float waitingTimeInSec = 4f;
     public float health = 20f;
+    PlayerHealthBar phb;
     private void Start()
     {
         thisTree = transform.parent.gameObject;
+        phb = FindObjectOfType<PlayerHealthBar>();
     }
 
     private void Update()
@@ -42,6 +44,7 @@ public class Tree : MonoBehaviour
 
     private IEnumerator destroyTree()
     {
+        phb.driedTreesCut++;
         yield return new WaitForSeconds(waitingTimeInSec); // ceka vrime u sekundama
         Destroy(thisTree); // unisti stablo
         PlaceStump(); // zove stavi stup

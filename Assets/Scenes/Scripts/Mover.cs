@@ -12,11 +12,12 @@ namespace RPG.Movement
     {
         [SerializeField] Transform target;
         NavMeshAgent navMeshAgent;
-
         Ray lastRay;
+        Player player;
 
         private void Start() {
             navMeshAgent = GetComponent<NavMeshAgent>();
+            player = GetComponent<Player>();
         }
 
         // Update is called once per frame
@@ -51,6 +52,14 @@ namespace RPG.Movement
         {
             navMeshAgent.destination = destination;
             navMeshAgent.isStopped = false;
+        }
+        private void CheckHp()
+        {
+            if (player.healthAsPercentage <= 0)
+            {
+                Destroy(this);
+            }
+            
         }
 
         
