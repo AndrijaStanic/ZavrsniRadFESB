@@ -14,10 +14,12 @@ namespace RPG.Combat
 
         Weapon currentWeapon = null;
         Transform target;
+        AudioSource audioSource;
         float timeSinceLastAttack = 0;
 
         private void Start() {
             EquipWeapon(defaultWeapon);
+            audioSource = GetComponent<AudioSource>();
         }
 
         
@@ -70,6 +72,10 @@ namespace RPG.Combat
         void Hit()
         {
             Tree health = target.GetComponent<Tree>();
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
             if (health == null)
             {
                 FriendlyTree fTree = target.GetComponent<FriendlyTree>();

@@ -14,6 +14,7 @@ public class FriendlyTree : MonoBehaviour
     public Transform spawnPoint;
     public float health = 20f;
     private bool isFallen = false;
+    AudioSource audioSource;
     GameObject thisTree;
     PlayerHealthBar phb;
     Player player;
@@ -21,6 +22,7 @@ public class FriendlyTree : MonoBehaviour
     
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         thisTree = transform.parent.gameObject;
         phb = FindObjectOfType<PlayerHealthBar>();
         player = FindObjectOfType<Player>();
@@ -42,6 +44,10 @@ public class FriendlyTree : MonoBehaviour
             rigidBody.useGravity = true;
             rigidBody.mass = 5;
             rigidBody.AddTorque(Vector3.forward, ForceMode.Impulse); // gurni naprid
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
             StartCoroutine(destroyTree()); // zove unsti stablo
             isFallen = true; // state = fallen
         }

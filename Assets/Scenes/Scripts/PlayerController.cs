@@ -18,6 +18,7 @@ namespace RPG.Control
         {
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
+            //CheckHp();
         }
 
         private bool InteractWithCombat()
@@ -55,6 +56,13 @@ namespace RPG.Control
             private static Ray GetMouseRay() //vraca poziciju klika misa
             {
                 return Camera.main.ScreenPointToRay(Input.mousePosition);
+            }
+            private void CheckHp()
+            {
+                if (player.isDead)
+                {
+                Destroy(this);
+            }
             }
         }
 

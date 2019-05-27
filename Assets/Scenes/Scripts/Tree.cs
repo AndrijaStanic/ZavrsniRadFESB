@@ -15,9 +15,11 @@ public class Tree : MonoBehaviour
 
     private bool isFallen = false;
     GameObject thisTree;
+    AudioSource audioSource;
     PlayerHealthBar phb;
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         thisTree = transform.parent.gameObject;
         phb = FindObjectOfType<PlayerHealthBar>();
     }
@@ -38,6 +40,10 @@ public class Tree : MonoBehaviour
             rigidBody.useGravity = true;
             rigidBody.mass = 5;
             rigidBody.AddTorque(Vector3.forward, ForceMode.Impulse); // gurni naprid
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
             StartCoroutine(destroyTree()); // zove unsti stablo
             isFallen = true; // state = fallen
         }

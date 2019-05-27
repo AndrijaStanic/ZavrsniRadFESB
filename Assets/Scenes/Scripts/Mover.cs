@@ -15,22 +15,30 @@ namespace RPG.Movement
         NavMeshAgent navMeshAgent;
         Ray lastRay;
         Player player;
+        AudioSource  []audioSource2;
+        
 
         private void Start() {
             navMeshAgent = GetComponent<NavMeshAgent>();
             player = GetComponent<Player>();
+            audioSource2 = GetComponents<AudioSource>();
         }
 
         // Update is called once per frame
         void Update()
         {
             UpdateAnimator();
+            CheckHp();
         }
 
 
         public void StartMoveAction(Vector3 destination)
         {
             GetComponent<ActionScheduler>().StartAction(this);
+            if (!audioSource2[1].isPlaying)
+            {
+              audioSource2[1].Play();
+            }
             MoveTo(destination);
         }
 
@@ -46,6 +54,10 @@ namespace RPG.Movement
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
             GetComponent<Animator>().SetFloat("ForwardSpeed", speed);
+            //if (target == null)
+            //{
+            //    audioSource2[1].Stop();
+            //} 
         }
 
 

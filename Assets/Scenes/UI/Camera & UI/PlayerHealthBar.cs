@@ -20,6 +20,7 @@ public class PlayerHealthBar : MonoBehaviour
     public GameObject HealthMaskPanel;
     public Text GameOverText;
 
+    AudioSource audioSource;
     RawImage healthBarRawImage;
     Player player;
     // Use this for initialization
@@ -27,6 +28,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         healthBarRawImage = GetComponent<RawImage>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,7 +44,11 @@ public class PlayerHealthBar : MonoBehaviour
     {
         if (player.isDead)
         {
-            Cursor.visible = true;
+            if (!audioSource.isPlaying)
+            {
+                audioSource.Play();
+            }
+            // Cursor.visible = true;
             gameOverPanel.SetActive(true);
             treesCut.text = "" + (friendlyTreesCut + driedTreesCut);
             driedTreesCutPanel.SetActive(false);
@@ -50,6 +56,7 @@ public class PlayerHealthBar : MonoBehaviour
             TimeLeftPanel.SetActive(false);
             HealthBarPanel.SetActive(false);
             HealthMaskPanel.SetActive(false);
+            
         }
     }
 }
