@@ -72,33 +72,48 @@ namespace RPG.Combat
         void Hit()
         {
             Tree health = target.GetComponent<Tree>();
+            PlayChopAS();
+            if (health == null)
+            {
+                DealDamageToFriendlyTree();
+            }
+            else
+            {
+                DealDamageToEnemyTree(health);
+            }
+
+
+        }
+
+        private void PlayChopAS()
+        {
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
             }
-            if (health == null)
-            {
-                FriendlyTree fTree = target.GetComponent<FriendlyTree>();
-                fTree.TakeDamage(currentWeapon.GetDamage());
-                Enemy enemy = target.GetComponent<Enemy>();
-                enemy.TakeDamage(currentWeapon.GetDamage());
-                if (fTree.health <= 0)
-                {
-                    Cancel();
-                }
-            }
-            else
-            {
-                health.TakeDamage(currentWeapon.GetDamage());
-                Enemy enemy = target.GetComponent<Enemy>();
-                enemy.TakeDamage(currentWeapon.GetDamage());
-                if (health.health <= 0)
-                {
-                    Cancel();
-                }
-            }
-            
+        }
 
+        private void DealDamageToEnemyTree(Tree health)
+        {
+            health.TakeDamage(currentWeapon.GetDamage());
+            Enemy enemy = target.GetComponent<Enemy>();
+            enemy.TakeDamage(currentWeapon.GetDamage());
+            if (health.health <= 0)
+            {
+                Cancel();
+            }
+        }
+
+        private void DealDamageToFriendlyTree()
+        {
+            FriendlyTree fTree = target.GetComponent<FriendlyTree>();
+            fTree.TakeDamage(currentWeapon.GetDamage());
+            Enemy enemy = target.GetComponent<Enemy>();
+            enemy.TakeDamage(currentWeapon.GetDamage());
+            if (fTree.health <= 0)
+            {
+                Cancel();
+            }
         }
 
         private bool CalculateRange()
@@ -115,6 +130,7 @@ namespace RPG.Combat
 
         public void Cancel()
         {
+            //audioSource.Stop();
             StopAttack();
             target = null;
         }

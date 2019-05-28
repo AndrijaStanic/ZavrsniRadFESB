@@ -14,14 +14,17 @@ public class Tree : MonoBehaviour
     public Transform spawnPoint;
 
     private bool isFallen = false;
+    public static int treesCreated = 0;
     GameObject thisTree;
     AudioSource audioSource;
     PlayerHealthBar phb;
     private void Start()
     {
+        treesCreated++;
         audioSource = GetComponent<AudioSource>();
         thisTree = transform.parent.gameObject;
         phb = FindObjectOfType<PlayerHealthBar>();
+
     }
 
     private void Update()
@@ -40,18 +43,24 @@ public class Tree : MonoBehaviour
             rigidBody.useGravity = true;
             rigidBody.mass = 5;
             rigidBody.AddTorque(Vector3.forward, ForceMode.Impulse); // gurni naprid
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            PlayAS();
             StartCoroutine(destroyTree()); // zove unsti stablo
             isFallen = true; // state = fallen
+        }
+    }
+
+    private void PlayAS()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
         }
     }
 
     private IEnumerator destroyTree()
     {
         phb.driedTreesCut++;
+        treesCreated--;
         yield return new WaitForSeconds(waitingTimeInSec); // ceka vrime u sekundama
         Destroy(thisTree); // unisti stablo
         PlaceStump(); // zove stavi stup

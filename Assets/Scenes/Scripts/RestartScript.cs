@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class RestartScript : MonoBehaviour
 {
+    
     public void Click()
     {
-        Debug.Log(" Restarting!");
+        FriendlyTree.treesCreated = 0;
+        Tree.treesCreated = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex);
-        // Application.LoadLevel("ZavrsniRad");
     }
 }

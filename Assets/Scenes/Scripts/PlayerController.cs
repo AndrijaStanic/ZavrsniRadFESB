@@ -62,7 +62,7 @@ namespace RPG.Control
                 if (player.isDead)
                 {
                 Destroy(this);
-            }
+                }
             }
         }
 

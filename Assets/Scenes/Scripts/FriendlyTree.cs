@@ -11,17 +11,21 @@ public class FriendlyTree : MonoBehaviour
     
     [SerializeField] GameObject thisStump;
     [SerializeField] float waitingTimeInSec = 4f;
+    public static int treesCreated = 0;
+
     public Transform spawnPoint;
     public float health = 20f;
-    private bool isFallen = false;
+
     AudioSource audioSource;
     GameObject thisTree;
     PlayerHealthBar phb;
     Player player;
+    private bool isFallen = false;
     int i = 0;
     
     private void Start()
     {
+        treesCreated++;
         audioSource = GetComponent<AudioSource>();
         thisTree = transform.parent.gameObject;
         phb = FindObjectOfType<PlayerHealthBar>();
@@ -44,19 +48,25 @@ public class FriendlyTree : MonoBehaviour
             rigidBody.useGravity = true;
             rigidBody.mass = 5;
             rigidBody.AddTorque(Vector3.forward, ForceMode.Impulse); // gurni naprid
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
+            PlayFallingAS();
             StartCoroutine(destroyTree()); // zove unsti stablo
             isFallen = true; // state = fallen
+        }
+    }
+
+    private void PlayFallingAS()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
         }
     }
 
     private IEnumerator destroyTree()
     {
         phb.friendlyTreesCut++;
-        player.SitDownGetMeTwenty(20f);
+        treesCreated--;
+        player.SitDownGetMeTwenty(20f); // skida 20 healtha jer si glup
         yield return new WaitForSeconds(waitingTimeInSec); // ceka vrime u sekundama
         Destroy(thisTree); // unisti stablo
         PlaceStump(); // zove stavi stup

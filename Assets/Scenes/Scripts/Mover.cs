@@ -35,13 +35,17 @@ namespace RPG.Movement
         public void StartMoveAction(Vector3 destination)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            if (!audioSource2[1].isPlaying)
-            {
-              audioSource2[1].Play();
-            }
+            PlayFootstepsAS();
             MoveTo(destination);
         }
 
+        private void PlayFootstepsAS()
+        {
+            if (!audioSource2[1].isPlaying)
+            {
+                audioSource2[1].Play();
+            }
+        }
 
         public void Cancel()
         {
@@ -54,10 +58,6 @@ namespace RPG.Movement
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
             GetComponent<Animator>().SetFloat("ForwardSpeed", speed);
-            //if (target == null)
-            //{
-            //    audioSource2[1].Stop();
-            //} 
         }
 
 

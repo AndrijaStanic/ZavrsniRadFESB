@@ -7,56 +7,106 @@ using UnityEngine.UI;
 public class PlayerHealthBar : MonoBehaviour
 {
     
-    public int driedTreesCut;
-    public int friendlyTreesCut;
+    public int driedTreesCut; // posicena bolesna stabla
+    public int friendlyTreesCut; // posicena zradva stabla
+    public int seedsCollected; // koliko sjemena imamo
+    public int treesPlanted; // koliko stabla smo planatali
+
+    //public Text friendlyTreesSpawnedText; // testing
+
     public Text driedTreesCutText;
     public Text friendlyTreesCutText;
-    public Text treesCut;
+    public Text seedsCollectedText;
+    public Text treesPlantedText;
+
+    public Text gameOverTreesCutText;
+    public Text gameOverTreesPlantedText;
+
+    public Text gameSuccededTreesCutText;
+    public Text gameSuccededTreesPlantedText;
+
     public GameObject gameOverPanel;
-    public GameObject driedTreesCutPanel;
-    public GameObject friendlyTreesCutPanel;
-    public GameObject TimeLeftPanel;
+    public GameObject UIItemsCollected_TimePanel;
     public GameObject HealthBarPanel;
     public GameObject HealthMaskPanel;
-    public Text GameOverText;
+    public GameObject gameSuccededPanel;
+
 
     AudioSource audioSource;
     RawImage healthBarRawImage;
     Player player;
+    int treesSpawned; // spawnana stabla bolesna
+    int friendlyTreesSpawned; // spawnana zdrava stabla
+    
     // Use this for initialization
     void Start()
     {
         player = FindObjectOfType<Player>();
         healthBarRawImage = GetComponent<RawImage>();
         audioSource = GetComponent<AudioSource>();
+        friendlyTreesSpawned = FriendlyTree.treesCreated;
+        int allTrees = treesSpawned + friendlyTreesSpawned;
     }
 
     // Update is called once per frame
     void Update()
     {
-        driedTreesCutText.text = "Dried trees cut: " + driedTreesCut;
-        friendlyTreesCutText.text = "Friendly trees cut: " + friendlyTreesCut;
-        float xValue = -(player.healthAsPercentage / 2f) - 0.5f;
-        healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
+        //friendlyTreesSpawnedText.text = "" + friendlyTreesSpawned;
+        RefreshTreeNumbers();
+        UpdateTreesCut();
+        UpdateTreesPlanted();
+        UpdateHealthBar();
         SetGameOverPanel();
     }
+
+    private void RefreshTreeNumbers()
+    {
+        treesSpawned = Tree.treesCreated;
+        friendlyTreesSpawned = FriendlyTree.treesCreated;
+    }
+
+    private void UpdateTreesPlanted()
+    {
+        seedsCollectedText.text = "Seeds collected: " + seedsCollected;
+        treesPlantedText.text = "Trees planted: " + treesPlanted;
+    }
+
+    private void UpdateHealthBar()
+    {
+        float xValue = -(player.healthAsPercentage / 2f) - 0.5f;
+        healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
+    }
+
+    private void UpdateTreesCut()
+    {
+        driedTreesCutText.text = "Dried trees left: " + treesSpawned;
+        friendlyTreesCutText.text = "Friendly trees left: " + friendlyTreesSpawned;
+    }
+
     void SetGameOverPanel()
     {
+        if (treesSpawned == 0)
+        {
+            gameSuccededPanel.SetActive(true);
+            gameSuccededTreesCutText.text = "" + (friendlyTreesCut + driedTreesCut);
+            gameSuccededTreesPlantedText.text = "" + treesPlanted;
+            UIItemsCollected_TimePanel.SetActive(false);
+            HealthBarPanel.SetActive(false);
+            HealthMaskPanel.SetActive(false);
+            player.isDead = true;
+            return;
+        }
         if (player.isDead)
         {
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-            // Cursor.visible = true;
+            
             gameOverPanel.SetActive(true);
-            treesCut.text = "" + (friendlyTreesCut + driedTreesCut);
-            driedTreesCutPanel.SetActive(false);
-            friendlyTreesCutPanel.SetActive(false);
-            TimeLeftPanel.SetActive(false);
+            gameOverTreesCutText.text = "" + (friendlyTreesCut + driedTreesCut);
+            gameOverTreesPlantedText.text = "" + treesPlanted;
+            UIItemsCollected_TimePanel.SetActive(false);
             HealthBarPanel.SetActive(false);
             HealthMaskPanel.SetActive(false);
             
         }
+        
     }
 }
