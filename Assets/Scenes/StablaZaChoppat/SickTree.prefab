@@ -403,11 +403,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ItemDrop
       objectReference: {fileID: 0}
-    - target: {fileID: 9220818634720869698, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7986399731256372184, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -478,6 +473,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.6215427
       objectReference: {fileID: 0}
+    - target: {fileID: 9220818634720869700, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
+        type: 3}
+      propertyPath: itemPickup
+      value: 
+      objectReference: {fileID: 1310111851457182530}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8056c7eb0a3814da12a2af2c7e6add, type: 3}
 --- !u!1 &9220818634238621868 stripped
@@ -489,6 +489,12 @@ GameObject:
 --- !u!4 &7986399731578383926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7986399731256372184, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
+    type: 3}
+  m_PrefabInstance: {fileID: 483296750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1310111851457182530 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1310111851940216492, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
     type: 3}
   m_PrefabInstance: {fileID: 483296750}
   m_PrefabAsset: {fileID: 0}

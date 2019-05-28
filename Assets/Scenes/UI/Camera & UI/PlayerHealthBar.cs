@@ -34,7 +34,6 @@ public class PlayerHealthBar : MonoBehaviour
     public GameObject gameSuccededPanel;
     public GameObject seedsCollectedPanel;
 
-
     //AudioSource audioSource;
     RawImage healthBarRawImage;
     Player player;
@@ -88,7 +87,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     void SetGameOverPanel()
     {
-        if (treesSpawned == 0)
+        if (treesSpawned == 0 && treesPlanted == 0)
         {
             //audioSource.Play();
             gameSuccededPanel.SetActive(true);

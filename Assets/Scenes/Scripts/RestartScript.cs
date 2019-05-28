@@ -17,4 +17,5 @@ public class RestartScript : MonoBehaviour
         player.isDead = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene ().buildIndex);
     }
+    
 }

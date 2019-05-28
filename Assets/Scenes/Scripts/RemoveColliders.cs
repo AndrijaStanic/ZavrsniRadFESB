@@ -4,9 +4,32 @@ using UnityEngine;
 
 public class RemoveColliders : MonoBehaviour
 {
-    public GameObject words;
-    private void OnTriggerEnter(Collider other) {
+    [SerializeField]
+    GameObject wordText = null;
+
+    Camera cameraToLookAt;
+
+    private void Start()
+    {
+        cameraToLookAt = Camera.main;
+        SpawnText();
+    }
+
+    private void SpawnText()
+    {
+        Instantiate(wordText, transform.position, Quaternion.identity, transform);
+        BoxCollider boxCollider = wordText.AddComponent<BoxCollider>();
+        boxCollider.isTrigger = true;
+        boxCollider.size.y.Equals(50);
+    }
+
+    private void OnTriggerEnter(Collider collider) {
         print("collided");
-        words.SetActive(false);
+        wordText.SetActive(false);
+    }
+    void LateUpdate()
+    {
+        transform.LookAt(cameraToLookAt.transform);
+        transform.rotation = Quaternion.LookRotation(cameraToLookAt.transform.forward);
     }
 }

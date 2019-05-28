@@ -5,7 +5,6 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField] GameObject itemPickup = null;
-
     PlayerHealthBar pHealthBar;
 
     private float timer = 0;
@@ -23,21 +22,12 @@ public class ItemPickup : MonoBehaviour
             Destroy(itemPickup);
             pHealthBar.seedsCollectedPanel.SetActive(true);
             Invoke("Waiterino", 3f);
-            StartCoroutine(Wait());
 
         }
     }
-
+    
     private void Waiterino()
     {
         pHealthBar.seedsCollectedPanel.SetActive(false);
     }
-
-    private IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(3f);
-        pHealthBar.seedsCollectedPanel.SetActive(false);
-    }
-   
-    
 }
