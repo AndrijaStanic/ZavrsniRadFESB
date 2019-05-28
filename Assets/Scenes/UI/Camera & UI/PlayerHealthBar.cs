@@ -25,11 +25,14 @@ public class PlayerHealthBar : MonoBehaviour
     public Text gameSuccededTreesCutText;
     public Text gameSuccededTreesPlantedText;
 
+    public Text seedsCollcetedText;
+
     public GameObject gameOverPanel;
     public GameObject UIItemsCollected_TimePanel;
     public GameObject HealthBarPanel;
     public GameObject HealthMaskPanel;
     public GameObject gameSuccededPanel;
+    public GameObject seedsCollectedPanel;
 
 
     AudioSource audioSource;
