@@ -8,7 +8,8 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-    [SerializeField] GameObject thisStump;
+    [SerializeField] GameObject itemPickup = null;
+    [SerializeField] GameObject thisStump = null;
     [SerializeField] float waitingTimeInSec = 4f;
     public float health = 20f;
     public Transform spawnPoint;
@@ -64,6 +65,7 @@ public class Tree : MonoBehaviour
         yield return new WaitForSeconds(waitingTimeInSec); // ceka vrime u sekundama
         Destroy(thisTree); // unisti stablo
         PlaceStump(); // zove stavi stup
+        itemPickup.SetActive(true);
     }
 
     private void PlaceStump() //metoda za postavljanje stumpa

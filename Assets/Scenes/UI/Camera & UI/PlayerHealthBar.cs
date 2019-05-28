@@ -35,7 +35,7 @@ public class PlayerHealthBar : MonoBehaviour
     public GameObject seedsCollectedPanel;
 
 
-    AudioSource audioSource;
+    //AudioSource audioSource;
     RawImage healthBarRawImage;
     Player player;
     int treesSpawned; // spawnana stabla bolesna
@@ -46,7 +46,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         healthBarRawImage = GetComponent<RawImage>();
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         friendlyTreesSpawned = FriendlyTree.treesCreated;
         int allTrees = treesSpawned + friendlyTreesSpawned;
     }
@@ -90,6 +90,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         if (treesSpawned == 0)
         {
+            //audioSource.Play();
             gameSuccededPanel.SetActive(true);
             gameSuccededTreesCutText.text = "" + (friendlyTreesCut + driedTreesCut);
             gameSuccededTreesPlantedText.text = "" + treesPlanted;

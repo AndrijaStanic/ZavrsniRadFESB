@@ -29,6 +29,7 @@ namespace RPG.Movement
         {
             UpdateAnimator();
             CheckHp();
+            
         }
 
 

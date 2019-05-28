@@ -22,9 +22,21 @@ public class ItemPickup : MonoBehaviour
             pHealthBar.seedsCollected++;
             Destroy(itemPickup);
             pHealthBar.seedsCollectedPanel.SetActive(true);
-            //pHealthBar.seedsCollectedPanel.SetActive(false);
+            Invoke("Waiterino", 3f);
+            StartCoroutine(Wait());
 
         }
+    }
+
+    private void Waiterino()
+    {
+        pHealthBar.seedsCollectedPanel.SetActive(false);
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3f);
+        pHealthBar.seedsCollectedPanel.SetActive(false);
     }
    
     
