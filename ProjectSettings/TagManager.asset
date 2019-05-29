@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Potkronjak
+  - PlantingPod
+  - FriendlyTree
   layers:
   - Default
   - TransparentFX

@@ -5255,6 +5255,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1414190547, guid: 61b857de5e06e0442873c93eed0e3201, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61b857de5e06e0442873c93eed0e3201, type: 3}
 --- !u!4 &968185295 stripped
@@ -12158,6 +12162,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnPoints
       objectReference: {fileID: 0}
+    - target: {fileID: 337828043873204008, guid: 0bc153174230c2641b795a0bc10c431d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 337828043873204009, guid: 0bc153174230c2641b795a0bc10c431d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12166,7 +12175,7 @@ PrefabInstance:
     - target: {fileID: 337828043873204009, guid: 0bc153174230c2641b795a0bc10c431d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.83
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 337828043873204009, guid: 0bc153174230c2641b795a0bc10c431d,
         type: 3}
@@ -12212,6 +12221,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 337828042581755473, guid: 0bc153174230c2641b795a0bc10c431d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 337828042301671448, guid: 0bc153174230c2641b795a0bc10c431d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 337828042301671448, guid: 0bc153174230c2641b795a0bc10c431d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 337828042301671448, guid: 0bc153174230c2641b795a0bc10c431d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bc153174230c2641b795a0bc10c431d, type: 3}
@@ -12391,6 +12420,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 614423855317920983, guid: bd1e4e3ac250258429c84110419379f6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd1e4e3ac250258429c84110419379f6, type: 3}
@@ -13668,6 +13702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: "\u015EpawnPointsUp"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220676726919209010, guid: 3b370e8d58097cc4ab3080ba880426ee,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6220676726919209009, guid: 3b370e8d58097cc4ab3080ba880426ee,
         type: 3}

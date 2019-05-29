@@ -22,7 +22,8 @@ public class ItemPickup : MonoBehaviour
             Destroy(itemPickup);
             pHealthBar.seedsCollectedPanel.SetActive(true);
             Invoke("Waiterino", 3f);
-
+            //Destroy(this);
+            
         }
     }
     

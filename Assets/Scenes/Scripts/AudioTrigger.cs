@@ -23,7 +23,7 @@ public class AudioTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == layerFilter)
+        if (other.gameObject.tag == "Player")
         {
             RequestPlayAudioClip();
         }

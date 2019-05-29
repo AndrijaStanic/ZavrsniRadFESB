@@ -10,9 +10,12 @@ public class Player : MonoBehaviour
     [SerializeField] float timeBetweenHPDrops = 1f;
     [SerializeField] float maxHealthPoints = 100f;
     [SerializeField] float currentHealthPoints = 300;
+
     public bool isDead = false;
     
     float timeSinceLastHPDrop = 0;
+
+    PlayerHealthBar phb;
     public float healthAsPercentage
     {
         get
@@ -22,7 +25,10 @@ public class Player : MonoBehaviour
         
     }
 
-    
+    private void Start()
+    {
+        phb = GetComponent<PlayerHealthBar>();
+    }
     private void Update()
     {
         timeSinceLastHPDrop += Time.deltaTime;
@@ -31,7 +37,6 @@ public class Player : MonoBehaviour
             Die();
             TakeDamage();
         }
-        
         
     }
     
@@ -62,6 +67,5 @@ public class Player : MonoBehaviour
         currentHealthPoints = currentHealthPoints - f;
     }
    
-
 }
 

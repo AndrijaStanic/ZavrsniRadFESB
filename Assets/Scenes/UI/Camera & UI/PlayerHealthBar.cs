@@ -34,20 +34,25 @@ public class PlayerHealthBar : MonoBehaviour
     public GameObject gameSuccededPanel;
     public GameObject seedsCollectedPanel;
 
+    public bool isAvailableForPlanting = false;
+
     //AudioSource audioSource;
     RawImage healthBarRawImage;
     Player player;
     int treesSpawned; // spawnana stabla bolesna
     int friendlyTreesSpawned; // spawnana zdrava stabla
+
+    int allEnemyTrees;
     
-    // Use this for initialization
     void Start()
     {
         player = FindObjectOfType<Player>();
         healthBarRawImage = GetComponent<RawImage>();
         //audioSource = GetComponent<AudioSource>();
         friendlyTreesSpawned = FriendlyTree.treesCreated;
-        int allTrees = treesSpawned + friendlyTreesSpawned;
+        //int allTrees = treesSpawned + friendlyTreesSpawned;
+        
+        
     }
 
     // Update is called once per frame
@@ -59,6 +64,19 @@ public class PlayerHealthBar : MonoBehaviour
         UpdateTreesPlanted();
         UpdateHealthBar();
         SetGameOverPanel();
+        allEnemyTrees = Tree.treesCreatedAll;
+        CheckIfPlayerIsAvailableForPlanting();
+    }
+
+    private void CheckIfPlayerIsAvailableForPlanting()
+    {
+        if (seedsCollected > 0)
+        {
+            isAvailableForPlanting = true;
+        }
+        else
+            isAvailableForPlanting = false;
+        //print(isAvailableForPlanting); //testing
     }
 
     private void RefreshTreeNumbers()
@@ -87,7 +105,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     void SetGameOverPanel()
     {
-        if (treesSpawned == 0 && treesPlanted == 0)
+        if (treesSpawned == 0 && treesPlanted == allEnemyTrees)
         {
             //audioSource.Play();
             gameSuccededPanel.SetActive(true);
@@ -111,5 +129,10 @@ public class PlayerHealthBar : MonoBehaviour
             
         }
         
+    }
+    private IEnumerator Wait()
+    {
+        print("usa u wait");
+        yield return new WaitForSeconds(10f);
     }
 }

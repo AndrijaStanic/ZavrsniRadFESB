@@ -72,15 +72,27 @@ namespace RPG.Combat
         void Hit()
         {
             Tree health = target.GetComponent<Tree>();
-            PlayChopAS();
-            if (health == null)
+            FriendlyTree fTree = target.GetComponent<FriendlyTree>();
+            PlantingPlace plantingPlace = target.GetComponent<PlantingPlace>();
+            if (health != null)
             {
-                DealDamageToFriendlyTree();
-            }
-            else
-            {
+                PlayChopAS();
+                print("ulazim u enemy tree");
                 DealDamageToEnemyTree(health);
+
             }
+            else if(fTree != null)
+            {
+                PlayChopAS();
+                print("ulazim u friendly tree");
+                DealDamageToFriendlyTree(fTree);
+            }
+            else if(plantingPlace != null)
+            {
+                print(" ulazim u planting place");
+                DealDamageToPlantingPlace(plantingPlace);
+            }
+            
 
 
         }
@@ -104,13 +116,24 @@ namespace RPG.Combat
             }
         }
 
-        private void DealDamageToFriendlyTree()
+        private void DealDamageToFriendlyTree(FriendlyTree fTree)
         {
-            FriendlyTree fTree = target.GetComponent<FriendlyTree>();
+            //FriendlyTree fTree = target.GetComponent<FriendlyTree>();
             fTree.TakeDamage(currentWeapon.GetDamage());
             Enemy enemy = target.GetComponent<Enemy>();
             enemy.TakeDamage(currentWeapon.GetDamage());
             if (fTree.health <= 0)
+            {
+                Cancel();
+            }
+        }
+
+        private void DealDamageToPlantingPlace(PlantingPlace plantingPlace)
+        {
+            plantingPlace.TakeDamage(currentWeapon.GetDamage());
+            Enemy enemy = target.GetComponent<Enemy>();
+            enemy.TakeDamage(currentWeapon.GetDamage());
+            if (plantingPlace.health <= 0)
             {
                 Cancel();
             }

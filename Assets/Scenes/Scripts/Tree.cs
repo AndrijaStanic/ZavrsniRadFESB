@@ -10,18 +10,22 @@ public class Tree : MonoBehaviour
 {
     [SerializeField] GameObject itemPickup = null;
     [SerializeField] GameObject thisStump = null;
+    [SerializeField] GameObject thisPod = null;
     [SerializeField] float waitingTimeInSec = 4f;
     public float health = 20f;
     public Transform spawnPoint;
+    public Transform spawnPointPod;
 
     private bool isFallen = false;
     public static int treesCreated = 0;
+    public static int treesCreatedAll = 0;
     GameObject thisTree;
     AudioSource audioSource;
     PlayerHealthBar phb;
     private void Start()
     {
         treesCreated++;
+        treesCreatedAll++;
         audioSource = GetComponent<AudioSource>();
         thisTree = transform.parent.gameObject;
         phb = FindObjectOfType<PlayerHealthBar>();
@@ -65,7 +69,13 @@ public class Tree : MonoBehaviour
         yield return new WaitForSeconds(waitingTimeInSec); // ceka vrime u sekundama
         Destroy(thisTree); // unisti stablo
         PlaceStump(); // zove stavi stup
+        SpawnPod();
         itemPickup.SetActive(true);
+    }
+
+    private void SpawnPod()
+    {
+        Instantiate(thisPod, spawnPointPod.position, spawnPointPod.rotation);
     }
 
     private void PlaceStump() //metoda za postavljanje stumpa

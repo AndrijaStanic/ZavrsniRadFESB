@@ -45,6 +45,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCanvasPrefab: {fileID: 1311539807392560, guid: 9a9d70d10b9331d469e57254147e0430,
     type: 3}
+--- !u!1 &1610091137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1610091138}
+  m_Layer: 0
+  m_Name: SpawnPointPod
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1610091138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610091137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.36, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3042957212513696635}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3042957211142419843
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +117,7 @@ GameObject:
   - component: {fileID: 3042957212513696635}
   m_Layer: 0
   m_Name: SickTree3
-  m_TagString: Untagged
+  m_TagString: Potkronjak
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +136,7 @@ Transform:
   - {fileID: 3042957212930036241}
   - {fileID: 3042957211142419842}
   - {fileID: 247249432255133290}
+  - {fileID: 1610091138}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -278,9 +309,11 @@ MonoBehaviour:
   itemPickup: {fileID: 1318958206556479728}
   thisStump: {fileID: 7301741097265233022, guid: 6e61b51aa539d224684de7c2256f9f44,
     type: 3}
+  thisPod: {fileID: 8639028564706765086, guid: 04f5f5e98715fe141a3aee20d2bbd1c5, type: 3}
   waitingTimeInSec: 4
   health: 20
   spawnPoint: {fileID: 3042957212930036241}
+  spawnPointPod: {fileID: 1610091138}
 --- !u!114 &3042957212550839295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,11 +402,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3042957212513696635}
     m_Modifications:
-    - target: {fileID: 9220818634720869698, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
-        type: 3}
-      propertyPath: m_Name
-      value: ItemDrop
-      objectReference: {fileID: 0}
     - target: {fileID: 7986399731256372184, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -428,6 +456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 8.016001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9220818634720869698, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
+        type: 3}
+      propertyPath: m_Name
+      value: ItemDrop
       objectReference: {fileID: 0}
     - target: {fileID: 9220818634720869700, guid: 6b8056c7eb0a3814da12a2af2c7e6add,
         type: 3}

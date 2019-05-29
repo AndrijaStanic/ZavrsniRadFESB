@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 8944621031067223406}
   m_Layer: 0
   m_Name: FriendlyTree
-  m_TagString: Untagged
+  m_TagString: FriendlyTree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,10 +254,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6178013385148038676}
     m_Modifications:
-    - target: {fileID: 190414, guid: 653c97bd88b4b084d87714542c43ee5a, type: 3}
-      propertyPath: m_Name
-      value: SM_Env_Tree_03
-      objectReference: {fileID: 0}
     - target: {fileID: 496924, guid: 653c97bd88b4b084d87714542c43ee5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -301,6 +297,10 @@ PrefabInstance:
     - target: {fileID: 496924, guid: 653c97bd88b4b084d87714542c43ee5a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 190414, guid: 653c97bd88b4b084d87714542c43ee5a, type: 3}
+      propertyPath: m_Name
+      value: SM_Env_Tree_03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 653c97bd88b4b084d87714542c43ee5a, type: 3}
@@ -311,16 +311,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8944621031067223406}
     m_Modifications:
-    - target: {fileID: 7814279363905038653, guid: ce5971af4cae6d843bcfa238d4d19d32,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyTree 1 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8045054234184697219, guid: ce5971af4cae6d843bcfa238d4d19d32,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.54
-      objectReference: {fileID: 0}
     - target: {fileID: 2998582748363647529, guid: ce5971af4cae6d843bcfa238d4d19d32,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -375,6 +365,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7814279363905038653, guid: ce5971af4cae6d843bcfa238d4d19d32,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyTree 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8045054234184697219, guid: ce5971af4cae6d843bcfa238d4d19d32,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 5301045161821235218, guid: ce5971af4cae6d843bcfa238d4d19d32,
         type: 3}
@@ -396,8 +396,7 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.6695832
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7999547905141889105, guid: ce5971af4cae6d843bcfa238d4d19d32, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce5971af4cae6d843bcfa238d4d19d32, type: 3}
 --- !u!1 &1175519502209039616 stripped
 GameObject:
