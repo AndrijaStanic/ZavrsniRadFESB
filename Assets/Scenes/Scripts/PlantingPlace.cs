@@ -24,7 +24,7 @@ public class PlantingPlace : MonoBehaviour
     private void Start()
     {
         treesPlantedLeft++;
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponentInParent<AudioSource>();
         thisPod = transform.parent.gameObject;
         playerHealthBar = FindObjectOfType<PlayerHealthBar>();
     }

@@ -328,7 +328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &346527252
 RectTransform:
   m_ObjectHideFlags: 0
@@ -720,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &836577650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1951,7 +1951,8 @@ MonoBehaviour:
   HealthBarPanel: {fileID: 1625998141680414}
   HealthMaskPanel: {fileID: 1523554205684792}
   gameSuccededPanel: {fileID: 468061666}
-  seedsCollectedPanel: {fileID: 836577649}
+  seedsCollectedPanel: {fileID: 346527251}
+  isAvailableForPlanting: 0
 --- !u!1 &1653876244793134
 GameObject:
   m_ObjectHideFlags: 0

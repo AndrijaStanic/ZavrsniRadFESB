@@ -23,5 +23,10 @@ public class Enemy : MonoBehaviour
     {
         currentHealthPoints -= damage; // skida hp ovisno o damagu
     }
+    public void TakeDamagePlant(float damage, bool isAvailable)
+    {   
+        if (isAvailable)
+        currentHealthPoints -= damage; // skida hp ovisno o damagu
+    }
 
 }

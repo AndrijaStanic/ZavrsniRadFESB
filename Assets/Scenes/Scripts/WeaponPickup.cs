@@ -12,7 +12,7 @@ namespace RPG.Combat
             
             if (other.gameObject.tag == "Player")
             {
-                print(" Colided!");
+                // print(" Colided!"); test
                 other.GetComponent<Fighter>().EquipWeapon(weapon);
                 //Destroy(this); onemogucava ponovo prikupljanje weapona!
             }

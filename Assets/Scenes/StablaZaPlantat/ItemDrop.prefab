@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!135 &1724533633
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310111851940216492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.2999673
+  m_Center: {x: -0.007784307, y: 1.763166, z: -0.007716179}
 --- !u!1 &9220818634720869698
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b4a114aa50c4c248a09ab490324f3df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPickup: {fileID: 9220818634720869698}
+  itemPickup: {fileID: 1310111851940216492}
+  rend2: {fileID: 9220818634720869699}
 --- !u!1001 &1308312437436199422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66,6 +80,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7986399731256372184}
     m_Modifications:
+    - target: {fileID: 1826234429394770, guid: ea10774542693594183ed8bc58125543, type: 3}
+      propertyPath: m_Name
+      value: Boletus_edulis01
+      objectReference: {fileID: 0}
     - target: {fileID: 4014698561187972, guid: ea10774542693594183ed8bc58125543, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -110,12 +128,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1826234429394770, guid: ea10774542693594183ed8bc58125543, type: 3}
-      propertyPath: m_Name
-      value: Boletus_edulis01
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea10774542693594183ed8bc58125543, type: 3}
+--- !u!1 &1310111851940216492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1826234429394770, guid: ea10774542693594183ed8bc58125543,
+    type: 3}
+  m_PrefabInstance: {fileID: 1308312437436199422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1307816726410461562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4014698561187972, guid: ea10774542693594183ed8bc58125543,

@@ -7,12 +7,15 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] GameObject itemPickup = null;
     PlayerHealthBar pHealthBar;
 
+    public SphereCollider rend2;
+
     private float timer = 0;
     private float timerMax = 0;
-    // Start is called before the first frame update
+
     void Start()
     {
-        pHealthBar = FindObjectOfType<PlayerHealthBar>();   
+        pHealthBar = FindObjectOfType<PlayerHealthBar>();
+        //rend2 = GetComponent<SphereCollider>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +25,7 @@ public class ItemPickup : MonoBehaviour
             Destroy(itemPickup);
             pHealthBar.seedsCollectedPanel.SetActive(true);
             Invoke("Waiterino", 3f);
+            //StartCoroutine(Wait());
             //Destroy(this);
             
         }
@@ -30,5 +34,13 @@ public class ItemPickup : MonoBehaviour
     private void Waiterino()
     {
         pHealthBar.seedsCollectedPanel.SetActive(false);
+        rend2.enabled = false;
+    }
+    private IEnumerator Wait()
+    {
+        rend2.enabled = false;
+        yield return new WaitForSeconds(2f);
+        pHealthBar.seedsCollectedPanel.SetActive(false);
+        
     }
 }

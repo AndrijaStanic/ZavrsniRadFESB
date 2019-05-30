@@ -13,6 +13,7 @@ namespace RPG.Combat
         [SerializeField] Transform handTransform = null;
 
         Weapon currentWeapon = null;
+        PlayerHealthBar playerHealthBar;
         Transform target;
         AudioSource audioSource;
         float timeSinceLastAttack = 0;
@@ -20,6 +21,7 @@ namespace RPG.Combat
         private void Start() {
             EquipWeapon(defaultWeapon);
             audioSource = GetComponent<AudioSource>();
+            playerHealthBar = GetComponent<PlayerHealthBar>();
         }
 
         
@@ -77,19 +79,19 @@ namespace RPG.Combat
             if (health != null)
             {
                 PlayChopAS();
-                print("ulazim u enemy tree");
+                //print("ulazim u enemy tree"); testing
                 DealDamageToEnemyTree(health);
 
             }
             else if(fTree != null)
             {
                 PlayChopAS();
-                print("ulazim u friendly tree");
+                //print("ulazim u friendly tree"); testing
                 DealDamageToFriendlyTree(fTree);
             }
             else if(plantingPlace != null)
             {
-                print(" ulazim u planting place");
+                //print(" ulazim u planting place"); testing
                 DealDamageToPlantingPlace(plantingPlace);
             }
             
@@ -132,7 +134,7 @@ namespace RPG.Combat
         {
             plantingPlace.TakeDamage(currentWeapon.GetDamage());
             Enemy enemy = target.GetComponent<Enemy>();
-            enemy.TakeDamage(currentWeapon.GetDamage());
+            enemy.TakeDamagePlant(currentWeapon.GetDamage(), playerHealthBar.isAvailableForPlanting);
             if (plantingPlace.health <= 0)
             {
                 Cancel();
