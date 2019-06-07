@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     [SerializeField] GameObject itemPickup = null;
+    //[SerializeField] GameObject collider = null;
     PlayerHealthBar pHealthBar;
 
     public SphereCollider rend2;
@@ -21,20 +22,24 @@ public class ItemPickup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            
             pHealthBar.seedsCollected++;
+            rend2.isTrigger = false;
             Destroy(itemPickup);
             pHealthBar.seedsCollectedPanel.SetActive(true);
+            //Destroy(rend2);
             Invoke("Waiterino", 3f);
             //StartCoroutine(Wait());
-            //Destroy(this);
+            
             
         }
     }
     
     private void Waiterino()
     {
+        
         pHealthBar.seedsCollectedPanel.SetActive(false);
-        rend2.enabled = false;
+        
     }
     private IEnumerator Wait()
     {
