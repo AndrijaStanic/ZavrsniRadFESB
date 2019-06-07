@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] float timeBetweenHPDrops = 1f;
     [SerializeField] float maxHealthPoints = 100f;
-    [SerializeField] float currentHealthPoints = 300;
+    public float currentHealthPoints = 300;
 
     public bool isDead = false;
     

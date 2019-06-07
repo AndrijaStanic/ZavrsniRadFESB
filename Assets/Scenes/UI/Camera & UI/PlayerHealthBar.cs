@@ -27,7 +27,10 @@ public class PlayerHealthBar : MonoBehaviour
 
     public Text seedsCollcetedText;
 
+    
+
     public GameObject gameOverPanel;
+    public GameObject HighscorePanel;
     public GameObject UIItemsCollected_TimePanel;
     public GameObject HealthBarPanel;
     public GameObject HealthMaskPanel;
@@ -66,8 +69,9 @@ public class PlayerHealthBar : MonoBehaviour
         SetGameOverPanel();
         allEnemyTrees = Tree.treesCreatedAll;
         CheckIfPlayerIsAvailableForPlanting();
+        
     }
-
+    
     private void CheckIfPlayerIsAvailableForPlanting()
     {
         if (seedsCollected > 0)
@@ -114,6 +118,7 @@ public class PlayerHealthBar : MonoBehaviour
             UIItemsCollected_TimePanel.SetActive(false);
             HealthBarPanel.SetActive(false);
             HealthMaskPanel.SetActive(false);
+            HighscorePanel.SetActive(true);
             player.isDead = true;
             return;
         }
@@ -126,6 +131,7 @@ public class PlayerHealthBar : MonoBehaviour
             UIItemsCollected_TimePanel.SetActive(false);
             HealthBarPanel.SetActive(false);
             HealthMaskPanel.SetActive(false);
+            HighscorePanel.SetActive(true);
             
         }
         
