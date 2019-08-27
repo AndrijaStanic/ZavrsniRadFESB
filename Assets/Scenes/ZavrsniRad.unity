@@ -4647,6 +4647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HighscoreText: {fileID: 136926868}
+  ScoreText: {fileID: 550796106}
 --- !u!4 &816017739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4429234843561282, guid: f5cd7354c5e2cd546a7d90d6e9ce0daa,
@@ -8650,6 +8651,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 815978335, guid: 75a43cca039264395b99698681e52275, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 815978336, guid: 75a43cca039264395b99698681e52275, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -215
+      objectReference: {fileID: 0}
+    - target: {fileID: 815978336, guid: 75a43cca039264395b99698681e52275, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 753
+      objectReference: {fileID: 0}
     - target: {fileID: 224105136012598370, guid: 75a43cca039264395b99698681e52275,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8765,7 +8778,7 @@ PrefabInstance:
       objectReference: {fileID: 1748017140}
     - target: {fileID: 468061666, guid: 75a43cca039264395b99698681e52275, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114225469873570598, guid: 75a43cca039264395b99698681e52275,
         type: 3}
@@ -8792,18 +8805,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1481126299}
-    - target: {fileID: 815978335, guid: 75a43cca039264395b99698681e52275, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 815978336, guid: 75a43cca039264395b99698681e52275, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -215
-      objectReference: {fileID: 0}
-    - target: {fileID: 815978336, guid: 75a43cca039264395b99698681e52275, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 753
-      objectReference: {fileID: 0}
     - target: {fileID: 7012940800271993301, guid: 75a43cca039264395b99698681e52275,
         type: 3}
       propertyPath: m_AnchoredPosition.y

@@ -5,14 +5,14 @@ using UnityEngine;
 namespace RPG.Core
 {
     public class CameraFollow : MonoBehaviour
-{
-    [SerializeField] Transform target;
+        {
+        [SerializeField] Transform target;
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        transform.position = target.position;
+        // Update is called once per frame
+        void LateUpdate()
+        {
+            transform.position = target.position;
+        }
     }
-}
 
 }
