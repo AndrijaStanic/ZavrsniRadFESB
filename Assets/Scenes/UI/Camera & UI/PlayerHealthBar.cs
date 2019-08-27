@@ -45,7 +45,7 @@ public class PlayerHealthBar : MonoBehaviour
     int treesSpawned; // spawnana stabla bolesna
     int friendlyTreesSpawned; // spawnana zdrava stabla
 
-    int allEnemyTrees;
+    public int allEnemyTrees;
     
     void Start()
     {

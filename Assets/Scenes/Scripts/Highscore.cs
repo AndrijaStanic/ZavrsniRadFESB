@@ -22,9 +22,15 @@ namespace ZavrsniRadFESB.Assets.Scenes.Scripts
         private void Update() {
             ScoreText.text = "" + player.currentHealthPoints;
             score = player.currentHealthPoints;
+            Setter();
         }
         public void Setter() {
-            SetHighscore();
+            //if (player.currentHealthPoints != 0)
+            if (playerHealthBar.treesPlanted == playerHealthBar.allEnemyTrees)
+            {
+                SetHighscore();
+            }
+            
         }
 
         public void SetHighscore()
@@ -38,7 +44,7 @@ namespace ZavrsniRadFESB.Assets.Scenes.Scripts
             
         }
 
-        public  void Reset() {
+        public void Reset() {
             PlayerPrefs.DeleteKey("Highscore");
             HighscoreText.text = "0";
         }

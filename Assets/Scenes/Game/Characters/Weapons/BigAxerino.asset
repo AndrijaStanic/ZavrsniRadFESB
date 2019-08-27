@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff07622ea10b2548b72ca2f0bf6d29b, type: 3}
   m_Name: BigAxerino
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 3
   weaponPrefab: {fileID: 6494429576474096945, guid: 6d128d0f9ca414748ac43c33eb027693,
     type: 3}
   animatorOverride: {fileID: 22100000, guid: 61230aab311c0f445baa2d7db7c1ddf5, type: 2}
   weaponDamage: 10
   weaponRange: 3
+  timeBetweenAttacks: 3
