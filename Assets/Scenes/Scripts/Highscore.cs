@@ -26,7 +26,7 @@ namespace ZavrsniRadFESB.Assets.Scenes.Scripts
         }
         public void Setter() {
             //if (player.currentHealthPoints != 0)
-            if (playerHealthBar.treesPlanted == playerHealthBar.allEnemyTrees)
+            if (score > 0)
             {
                 SetHighscore();
             }
